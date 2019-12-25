@@ -1,11 +1,9 @@
-#[macro_use]
-extern crate diesel;
-extern crate dotenv;
 
 
 
-pub mod models;
-pub mod schema;
+
+// pub mod models;
+// pub mod schema;
 use diesel::prelude::*;
 /*  import requirements to use environment
     variables
@@ -13,6 +11,9 @@ use diesel::prelude::*;
 use dotenv::dotenv;
 use std::env;
 
+
+// make the user library functions usable
+pub mod users;
 
 
 pub fn establish_connection() -> PgConnection {
