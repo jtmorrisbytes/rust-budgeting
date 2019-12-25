@@ -38,8 +38,8 @@ mod tests {
     #[test]
     fn test_create_user() {
         
-        use diesel::query_dsl::filter_dsl::FilterDsl;
-        use diesel::query_dsl::load_dsl::LoadQuery;
+        // use diesel::query_dsl::filter_dsl::FilterDsl;
+        // use diesel::query_dsl::load_dsl::LoadQuery;
         let conn = establish_connection();
         /*
             get the list of users in the database to determine
@@ -47,6 +47,8 @@ mod tests {
             There should at least be one user with a userid of zero
             as the default user to test on.
 
+
+            for more details see crate::models::User
 
         */
 
@@ -57,8 +59,8 @@ mod tests {
 
 
 
-        let baseline_results = users.filter(users.id == test_id).load::<User>(&conn).expect("Error loading users");
-
+        let baseline_results = users.filter(id.eq(test_id)).load::<User>(&conn).expect("Error loading users");
+            ass
         if baseline_results.len() == 0 {
             //expect the create user method to succeed
         }

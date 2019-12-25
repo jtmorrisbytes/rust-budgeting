@@ -1,3 +1,19 @@
+/*
+    User: the default user type.
+
+    username: a user friendly name that distinguishes
+              one user from another using an [A-Za-Z0-9]
+              character pattern. No special characters 
+              should be allowed here
+    firstname: The first name of the user (Required).
+               The software needs to know what to call the user.
+               to make the experience feel more personal.
+
+
+*/
+
+
+
 
 use std::{i32};
 use std::fmt;
