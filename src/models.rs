@@ -1,6 +1,6 @@
 
 use std::{i32};
-
+use std::fmt;
 
 
 
@@ -17,8 +17,19 @@ pub struct User {
     pub firstname: String,
     pub lastname: Option<String>
 }
+pub const DEFAULT_DISPLAY: &'static str = "Null";
 
+impl fmt::Display for User {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        // let lastname: &mut String = String.clone_from(&default_display);
+        match &self.lastname {
+            Some(the_lastname) =>  write!(f, "{},{},{},{}", self.id,self.username,self.firstname,the_lastname),
+            None => write!(f, "{},{},{},{}", self.id,self.username,self.firstname,"Null")
+        }
+        
 
+    }
+}
 
 
 // pub struct NewUser {
