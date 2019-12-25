@@ -23,16 +23,16 @@ use self::models::*;
 fn main() {
 
     let connection = establish_connection();
-    let results = 
+    let results = users
         .limit(5)
-        .load::<Post>(&connection)
+        .load::<User>(&connection)
         .expect("Error loading posts");
 
     println!("Displaying {} posts", results.len());
-    for post in results {
-        println!("{}", post.title);
+    for user in results {
+        println!("{}", user.username);
         println!("----------\n");
-        println!("{}", post.body);
+        println!("{}", user.firstName);
     }
 }
 
