@@ -1,17 +1,26 @@
 /*
     User: the default user type.
 
-    username: a user friendly name that distinguishes
-              one user from another using an [A-Za-Z0-9]
-              character pattern. No special characters 
-              should be allowed here
+          id:  A number used purely as an index for the database,
+               ideally this will be managed by the database itself
+               unless a situation arises later in development
+               where the index will need to be manually specified
+    username:  A user friendly name ( Required, Unique)
+               that distinguishes one user from another
+               using an [A-Za-Z0-9] character pattern.
+
+               No special characters should be allowed here.
     firstname: The first name of the user (Required).
                The software needs to know what to call the user.
                to make the experience feel more personal.
+
     lastname: The last name of the user (Optional).
-            the software requires at least one name
-            but does not need more than that in
-            the current version.
+              the software requires at least one name
+              but does not need more than that in
+              the current version.
+
+
+            
 
 
 */
