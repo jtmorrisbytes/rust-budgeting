@@ -8,6 +8,10 @@
     firstname: The first name of the user (Required).
                The software needs to know what to call the user.
                to make the experience feel more personal.
+    lastname: The last name of the user (Optional).
+            the software requires at least one name
+            but does not need more than that in
+            the current version.
 
 
 */
