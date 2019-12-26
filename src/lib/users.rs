@@ -1,4 +1,11 @@
+/*
+    crate::lib::users.rs
+    
+    The set of actions that a user can perform are defined here
 
+    The rules regarding the user actions will be in comments
+    above the function describing the user action
+*/
 
 
 // this will eventually return the collection of
@@ -8,6 +15,38 @@ use diesel::PgConnection;
 use crate::models::User;
 // use crate::schema::users::dsl::*;
 use crate::diesel::RunQueryDsl;
+
+
+/*
+    pub fn create_user(...)
+
+    This function creates a new user in the database.
+    In order for the user creation to be successful,
+    the following requirements must be met:
+
+    1. the user must supply a unique key (username) as a
+       friendly way to distinguish one user from another
+    2. The user must give at least their first name, with their last
+       name being optional. This helps give the software a slightly
+       more personal feel than calling the user (user 0000000)
+    3. The user's username must not already exist in the database.
+       if the user attempts to register again, instead direct them
+       to login.
+    4. Make sure to check that if for some reason a user id is already
+       specified in the database even though the username is unique,
+       that an error is thrown to alert the developer of a potental overwrite
+       of data
+    Future requirements:
+    5. all personal data not dependant on looking up the user and is not relavent to the application
+       SHOULD NOT be collected at ANY COST to prevent liability isses when and where possible
+    6. Because data may be sent over the internet,
+         THIS SOFTWARE IS NOT INTENDED FOR USE BY CHILDREN UNDER 13 * FOR ANY REASON * in order to
+       protect from liability concerns. if a user is found to be under 13, they will have THREE DAYS
+       from the inital date of contact to prove their age, otherwise their account will be deleted.
+
+*/
+
+
 
 
 pub fn create_user<'a>(conn : &PgConnection,

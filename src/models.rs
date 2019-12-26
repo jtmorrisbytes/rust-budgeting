@@ -10,11 +10,11 @@
                using an [A-Za-Z0-9] character pattern.
 
                No special characters should be allowed here.
-    firstname: The first name of the user (Required).
+    firstname: The first name of the user (Required). $([A-Za-z]){3,25}^
                The software needs to know what to call the user.
                to make the experience feel more personal.
 
-    lastname: The last name of the user (Optional).
+    lastname: The last name of the user (Optional). $([A-Za-z]){3,25}^
               the software requires at least one name
               but does not need more than that in
               the current version.
@@ -24,10 +24,6 @@
 
 
 */
-
-
-
-
 use std::{i32};
 use std::fmt;
 
