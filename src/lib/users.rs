@@ -8,13 +8,12 @@
 */
 
 
-// this will eventually return the collection of
+
 
 
 use diesel::PgConnection;
 use crate::models::User;
 // use crate::schema::users::dsl::*;
-use crate::diesel::RunQueryDsl;
 
 
 /*
@@ -49,13 +48,18 @@ use crate::diesel::RunQueryDsl;
 
 
 
-pub fn create_user<'a>(conn : &PgConnection,
-                       id: &'a i32,
-                       username: &'a str,
-                       first_name: &'a str,
-                       last_name: &'a Option<String>) -> () {
 
+
+pub fn exists_username<'a>(conn: &PgConnection, username: &'a str) -> bool {
+
+
+
+    
 }
+
+
+
+
 
 
 
@@ -99,7 +103,7 @@ mod tests {
 
 
         let baseline_results = users.filter(id.eq(test_id)).load::<User>(&conn).expect("Error loading users");
-            ass
+            
         if baseline_results.len() == 0 {
             //expect the create user method to succeed
         }
@@ -127,9 +131,9 @@ mod tests {
 
         */
         super::create_user(&conn,
-            &0,
-            &"jthec",
-            &"jordan",
+            &test_id,
+            &test_username,
+            &test_firstname,
             &None);
 
     }
