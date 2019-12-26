@@ -9,11 +9,12 @@
 
 
 
-
+// import module dependancies
 
 use diesel::PgConnection;
+use crate::diesel::prelude::*;
+use crate::schema::users::dsl::*;
 use crate::models::User;
-// use crate::schema::users::dsl::*;
 
 
 /*
@@ -50,8 +51,12 @@ use crate::models::User;
 
 
 
-pub fn exists_username<'a>(conn: &PgConnection, username: &'a str) -> bool {
+pub fn exists_username<'a>(conn: &PgConnection, given_username: &'a str) -> bool {
+        let query_result = users.filter(username.eq(given_username)).load::<User>(conn)
+        .expect("Exists Username: Error retrieving users");
 
+
+    return true
 
 
     
@@ -114,13 +119,6 @@ mod tests {
             }
 
         }
-        
-
-
-
-
-
-
         /*
          calling the function like this should produce a newly qualified user
          if the user id does not exist and the username is unique.
@@ -130,11 +128,19 @@ mod tests {
 
 
         */
-        super::create_user(&conn,
-            &test_id,
-            &test_username,
-            &test_firstname,
-            &None);
+        // super::create_user(&conn,
+        //     &test_id,
+        //     &test_username,
+        //     &test_firstname,
+        //     &None);
 
+    }
+    #[test]
+    pub fn tests_exists_username() {
+        // use rand::
+
+
+
+        // let result = users
     }
 }
